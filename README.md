@@ -27,7 +27,7 @@ To get starterd, you will need to have next software pre-installed:
 In order to view for your Stripe Top Customers, your account's API key is required. 
 If you are running a development environment, we recommend you user your test API-token.
 
-![figure1]("figure1")
+![figure1](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure1.png "figure1")
 Figure 1: Retrieving Test Secret Key from Stripe Dashboard
 
 After you retrieve your secret key, in *config/application-dev.yml* (if you are working in dev environment), set next value as your Stripe API Key:
@@ -43,38 +43,38 @@ mvn  spring-boot:run
 
 Alternatively, you can start your server in your IDE:
 
-![figure1]("figure1")
+![figure2](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure2.png "figure2")
 Figure 2: Running Spring Boot Server in Intellij IDEA
 
 ### Step 3: Navigate to home page
 After your server successfully starts, you will see a link to your running server. Usually, your app should be running under 8080 port, but if it is used by other processes, Spring Boot will use another, unoccupied port:
 
-![figure1]("figure1")
+![figure3](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure3.png "figure3")
 Figure 3: Successfully Started Server
 
 ### Step 4: Login into your account
 We take security seriously! This is why Stripe Top Customers Viewer has a built-in Authentication system. While running in development mode, you should be able to login using pre-defined credentials, but use proper accounts when in production.
 
-![figure1]("figure1")
+![figure4](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure4.png "figure4")
 Figure 4: Home Page of STCV in Dev Mode
 
-![figure5]("figure5")
+![figure5](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure5.png "figure5")
 Figure 5: Authentication Window
 
 ### Step 5: View your data
 After you login, navigate to the **View Top Customers**.
 
-![figure6]("figure6")
+![figure6](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure6.png "figure6")
 Figure 6: View Top Customers Navigation
 
 
 where a table of all* your customers will be displayed with: 
 * Customer ID
 * Customer Email
-* Deliquency Status
+* Delinquency Status
 * Account Origin
 
-![figure7]("figure7")
+![figure7](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure7.png "figure7")
 Figure 7: Example of Top Customers Data  
 
 
