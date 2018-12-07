@@ -59,6 +59,7 @@ We take security seriously! This is why Stripe Top Customers Viewer has a built-
 Figure 4: Home Page of STCV in Dev Mode
 
 ![figure5](https://github.com/dmitryvinn/stripe-top-customers/blob/master/docs/assets/figure5.png "figure5")
+
 Figure 5: Authentication Window
 
 ### Step 5: View your data
