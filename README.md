@@ -1,100 +1,103 @@
-# StripeCustomersList
-This application was generated using JHipster 5.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.7.0](https://www.jhipster.tech/documentation-archive/v5.7.0).
+# Stripe Top Customers Viewer
 
-## Development
+# Table of Contents
+- [What is Stripe Top Customers Viewer?](#what-is-stripe-top-customers-viewer-)
+  * [How to get started](#how-to-get-started)
+    + [Step 1: Add your Stripe API key](#step-1--add-your-stripe-api-key)
+    + [Step 2: Start your Spring Boot server](#step-2--start-your-spring-boot-server)
+    + [Step 3: Navigate to home page](#step-3--navigate-to-home-page)
+    + [Step 4: Login into your account](#step-4--login-into-your-account)
+    + [Step 5: View your data](#step-5--view-your-data)
+      - [Important Note](#important-note-)
+- [Future Work](#future-work)
 
-To start your application in the dev profile, simply run:
+# What is Stripe Top Customers Viewer?
+Stripe Top Customers Viewer (aka, CTSV) is an easy way to view your top customers' data outside of Stripe Dashboard. This allows you to see all key information in a tabular form rather than as individual records that you need to view one-by-one.
 
-    
+## How to get started
+Currently, CSV is in a development phase, so you will need to prepare your machine for running the application locally.
+To get starterd, you will need to have next software pre-installed:
+* IDE of choice (ex. [Intellij IDEA])
+* [JDK 1.8 or higher]
+* [Node.js]
+* [Maven]
+* [Yarn]
 
+### Step 1: Add your Stripe API key
+In order to view for your Stripe Top Customers, your account's API key is required. 
+If you are running a development environment, we recommend you user your test API-token.
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
+![figure1]("figure1")
+Figure 1: Retrieving Test Secret Key from Stripe Dashboard
 
-### Using angular-cli
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-    ng generate component my-component
-
-will generate few files:
-
-    create src/main/webapp/app/my-component/my-component.component.html
-    create src/main/webapp/app/my-component/my-component.component.ts
-    update src/main/webapp/app/app.module.ts
-
-
-## Building for production
-
-To optimize the StripeCustomersList application for production, run:
+After you retrieve your secret key, in *config/application-dev.yml* (if you are working in dev environment), set next value as your Stripe API Key:
+`application.stripeapikey.value`
 
 
-To ensure everything worked, run:
-
-
-
-Refer to [Using JHipster in production][] for more details.
-
-## Testing
-
-To launch your application's tests, run:
-
-    ./gradlew test
-
-For more information, refer to the [Running tests page][].
-
-### Code quality
-
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
-
+### Step 2: Start your Spring Boot server
+After you install all the required software, you will need to start your Spring Boot Server.
+You can either do it by running this command in the project directory:
 ```
-docker-compose -f src/main/docker/sonar.yml up -d
-```
+mvn  spring-boot:run
+``` 
 
-Then, run a Sonar analysis:
+Alternatively, you can start your server in your IDE:
 
-```
-./gradlew -Pprod clean test sonarqube
-```
+![figure1]("figure1")
+Figure 2: Running Spring Boot Server in Intellij IDEA
 
-For more information, refer to the [Code quality page][].
+### Step 3: Navigate to home page
+After your server successfully starts, you will see a link to your running server. Usually, your app should be running under 8080 port, but if it is used by other processes, Spring Boot will use another, unoccupied port:
 
-## Using Docker to simplify development (optional)
+![figure1]("figure1")
+Figure 3: Successfully Started Server
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+### Step 4: Login into your account
+We take security seriously! This is why Stripe Top Customers Viewer has a built-in Authentication system. While running in development mode, you should be able to login using pre-defined credentials, but use proper accounts when in production.
 
-For example, to start a  database in a docker container, run:
+![figure1]("figure1")
+Figure 4: Home Page of STCV in Dev Mode
 
-    docker-compose -f src/main/docker/.yml up -d
+![figure5]("figure5")
+Figure 5: Authentication Window
 
-To stop it and remove the container, run:
+### Step 5: View your data
+After you login, navigate to the **View Top Customers**.
 
-    docker-compose -f src/main/docker/.yml down
-
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
-
-    
-
-Then run:
-
-    docker-compose -f src/main/docker/app.yml up -d
-
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
-
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
-
-[JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 5.7.0 archive]: https://www.jhipster.tech/documentation-archive/v5.7.0
-
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v5.7.0/development/
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v5.7.0/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v5.7.0/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v5.7.0/running-tests/
-[Code quality page]: https://www.jhipster.tech/documentation-archive/v5.7.0/code-quality/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v5.7.0/setting-up-ci/
+![figure6]("figure6")
+Figure 6: View Top Customers Navigation
 
 
+where a table of all* your customers will be displayed with: 
+* Customer ID
+* Customer Email
+* Deliquency Status
+* Account Origin
+
+![figure7]("figure7")
+Figure 7: Example of Top Customers Data  
+
+
+#### Important Note
+While in development mode, only top 50 records of your account are processed. This is due to the main performance bottleneck of this application - retrieval of charges each customers has. 
+Currently, to process over 300 customers, combine their individual charges and consequently sort these customers by these charges can take over 1.5 minutes. 
+
+If you would like to enable processing of all customers, in ``com.stripe.customers.list.service.util.StripeApiUtility.java``, uncomment line 33.
+
+# Future Work
+Before this Stripe Top Customers Viewer can be released to production, there are many parts of the application that need polishing:
+* JHipster Branding needs to be removed, so users can set their own branding
+* Allow users to pick and choose what fields they want to display in the tabular form (outside of the previously mentioned ones)
+* Fix major performance issue of chargers calculation by requesting a bulk-api from Stripe developers
+* Add pagination to the tabular results
+* Attend to all ```TODOs``` in code 
+* Increase test coverage of the application
+
+[AngularJS]: <http://angularjs.org>
+[Spring Boot]: <http://spring.io/projects/spring-boot>
+[Spring Boot]: <http://spring.io/projects/spring-boot>
+[Intellij IDEA]: <https://www.jetbrains.com/idea/>
+[JDK 1.8 or higher]: <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
+[Node.js]: <https://nodejs.org/en/>
+[Maven]: <https://maven.apache.org/install.html>
+[Yarn]: <https://yarnpkg.com/lang/en/docs/install/>

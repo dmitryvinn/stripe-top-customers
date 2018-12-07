@@ -3,6 +3,7 @@ package com.stripe.customers.list;
 import com.stripe.customers.list.config.ApplicationProperties;
 import com.stripe.customers.list.config.DefaultProfileUtil;
 
+import com.stripe.customers.list.service.util.StripeApiUtility;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,9 +28,12 @@ public class StripeCustomersListApp {
     private static final Logger log = LoggerFactory.getLogger(StripeCustomersListApp.class);
 
     private final Environment env;
+    private final ApplicationProperties applicationProperties;
 
-    public StripeCustomersListApp(Environment env) {
+    public StripeCustomersListApp(Environment env,
+                                  ApplicationProperties applicationProperties) {
         this.env = env;
+        this.applicationProperties = applicationProperties;
     }
 
     /**
@@ -46,10 +50,13 @@ public class StripeCustomersListApp {
             log.error("You have misconfigured your application! It should not run " +
                 "with both the 'dev' and 'prod' profiles at the same time.");
         }
+
+
         if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT) && activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_CLOUD)) {
             log.error("You have misconfigured your application! It should not " +
                 "run with both the 'dev' and 'cloud' profiles at the same time.");
         }
+        StripeApiUtility.initializeApi(applicationProperties.getStripeApiKey().getValue());
     }
 
     /**
