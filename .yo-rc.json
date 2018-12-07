@@ -1,0 +1,35 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.stripe.customers.list"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "StripeCustomersList",
+    "packageName": "com.stripe.customers.list",
+    "packageFolder": "com/stripe/customers/list",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZTkzNGU2OTU4OGRjMzZmOWQyNDk1OTk1YTFlMDhkNTdkNmE0MjJlNTYxN2M1MDU0MWY0Y2IxYTNmYmJlOGNlMDNmZmRjYzhiMWU3ZmUyOGM2OWJlMWUxNGZjZDBhZTJlOGJmMmU2N2E0ZjgxYjkzYjEyOWYzMTk0YzljZWM0MmQ=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
